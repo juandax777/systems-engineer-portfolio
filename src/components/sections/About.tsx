@@ -65,7 +65,7 @@ const About: React.FC = () => {
                                 Perfil Profesional
                             </h3>
                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                                Ingeniero de Sistemas en formación con más de 1.5 años de experiencia en automatización con Python 
+                                Estudiante de últimos semestres de Ingeniería de Sistemas con más de 1.5 años de experiencia en automatización con Python 
                                 y análisis de datos operacionales. Especializado en extracción, limpieza y consulta de datos con SQL, 
                                 construcción de dashboards en Excel y despliegue de soluciones backend en GCP y AWS.
                             </p>
@@ -73,7 +73,7 @@ const About: React.FC = () => {
                         <div>
                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
                                 Apasionado por transformar datos complejos en decisiones estratégicas. Enfocado en análisis de negocio, 
-                                pensamiento analítico y desarrollo de soluciones escalables.
+                                pensamiento analítico, arquitectura cloud y desarrollo de soluciones escalables. Certificado en AWS Cloud Solutions Architect.
                             </p>
                         </div>
                     </motion.div>

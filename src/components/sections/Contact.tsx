@@ -1,29 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiLinkedin, FiGithub, FiCheckCircle } from 'react-icons/fi';
+import { FiMail, FiPhone, FiLinkedin, FiGithub } from 'react-icons/fi';
 
 const Contact: React.FC = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [success, setSuccess] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const googleFormUrl = 'https://forms.gle/W233xbrjPJe9XzrZ8';
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
-        
-        // Simulate form submission
-        setTimeout(() => {
-            setSuccess(true);
-            setName('');
-            setEmail('');
-            setMessage('');
-            setLoading(false);
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => setSuccess(false), 5000);
-        }, 1000);
+    const handleOpenForm = () => {
+        window.open(googleFormUrl, '_blank');
     };
 
     const containerVariants = {
@@ -102,79 +85,25 @@ const Contact: React.FC = () => {
                         <div className="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-lg p-8 shadow-lg">
                             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Envíame un mensaje</h3>
                             
-                            {success && (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="mb-6 p-4 bg-green-100 dark:bg-green-900 rounded-lg flex items-center gap-3"
-                                >
-                                    <FiCheckCircle className="w-6 h-6 text-green-600 dark:text-green-400" />
-                                    <p className="text-green-700 dark:text-green-300 font-semibold">
-                                        ¡Mensaje enviado con éxito! Te responderé pronto.
-                                    </p>
-                                </motion.div>
-                            )}
+                            <p className="text-gray-600 dark:text-gray-400 mb-8">
+                                ¿Tienes una oferta laboral, proyecto de colaboración, consulta o simplemente quieres saludar? 
+                                Completa el formulario y te responderé pronto.
+                            </p>
 
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                <motion.div
-                                    variants={itemVariants}
-                                >
-                                    <label className="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
-                                        Nombre *
-                                    </label>
-                                    <input
-                                        type="text"
-                                        placeholder="Tu nombre"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors"
-                                        required
-                                    />
-                                </motion.div>
+                            <motion.button
+                                variants={itemVariants}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={handleOpenForm}
+                                className="w-full btn-primary py-4 font-semibold text-lg flex items-center justify-center gap-2"
+                            >
+                                <span>📝</span>
+                                Abrir Formulario de Contacto
+                            </motion.button>
 
-                                <motion.div
-                                    variants={itemVariants}
-                                >
-                                    <label className="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
-                                        Email *
-                                    </label>
-                                    <input
-                                        type="email"
-                                        placeholder="tu.email@ejemplo.com"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors"
-                                        required
-                                    />
-                                </motion.div>
-
-                                <motion.div
-                                    variants={itemVariants}
-                                >
-                                    <label className="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
-                                        Mensaje *
-                                    </label>
-                                    <textarea
-                                        placeholder="Cuéntame sobre tu oportunidad o pregunta..."
-                                        value={message}
-                                        onChange={(e) => setMessage(e.target.value)}
-                                        rows={5}
-                                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors resize-none"
-                                        required
-                                    />
-                                </motion.div>
-
-                                <motion.button
-                                    variants={itemVariants}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    type="submit"
-                                    disabled={loading}
-                                    className="w-full btn-primary py-3 font-semibold"
-                                >
-                                    {loading ? 'Enviando...' : 'Enviar Mensaje'}
-                                </motion.button>
-                            </form>
+                            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+                                El formulario se abrirá en una nueva pestaña
+                            </p>
                         </div>
                     </motion.div>
 

@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
                     variants={itemVariants}
                     className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-4 font-semibold"
                 >
-                    Ingeniero de Sistemas | Python, Data & Cloud
+                    Futuro Ingeniero de Sistemas | Python, Data & Cloud
                 </motion.p>
 
                 {/* Description */}

@@ -1,6 +1,6 @@
 # 👨‍💻 Juan David Rozo - Portafolio Profesional
 
-> Ingeniero de Sistemas | Python, Datos & Cloud Computing (AWS/GCP)
+> Futuro Ingeniero de Sistemas | Python, Datos & Cloud Computing (AWS/GCP)
 
 ![React](https://img.shields.io/badge/React-18.0+-blue?style=flat-square&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-4.0+-purple?style=flat-square&logo=vite)
@@ -9,6 +9,9 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 Portafolio profesional moderno, responsivo y con animaciones suaves. Diseñado para impresionar. Construido con React, Vite, Tailwind CSS y Framer Motion.
+
+### 🌐 Live Demo
+**[Ver portafolio en vivo →](https://systems-engineer-portfolio.onrender.com/)**
 
 ---
 
