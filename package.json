@@ -2,10 +2,11 @@
   "name": "systems-engineer-portfolio",
   "version": "1.0.0",
   "description": "A professional portfolio web application focused on systems engineering, data analysis, and cloud computing.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "start": "node server.js",
     "serve": "vite preview",
     "test": "vitest"
   },
