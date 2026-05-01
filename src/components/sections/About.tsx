@@ -21,7 +21,7 @@ const About: React.FC = () => {
             school: 'Universidad Central',
             program: 'Ingeniería de Sistemas',
             year: '2021 - presente',
-            semester: 'Novavo semestre',
+            semester: 'Noveno semestre',
             focus: 'Software, Datos y Cloud',
         },
         {

@@ -20,7 +20,7 @@ const Skills: React.FC = () => {
       category: 'Datos & IA',
       icon: FiCode,
       color: 'from-pink-500 to-pink-600',
-      skills: ['Pandas', 'OpenCV', 'YOLO', 'Power BI', 'Scikit-learn', 'TensorFlow'],
+      skills: ['Pandas', 'OpenCV', 'YOLO', 'Power BI', 'TensorFlow'],
     },
     {
       category: 'Bases de Datos',
@@ -38,7 +38,7 @@ const Skills: React.FC = () => {
       category: 'Versionamiento',
       icon: FiGitBranch,
       color: 'from-red-500 to-red-600',
-      skills: ['Git', 'GitHub', 'GitLab'],
+      skills: ['Git', 'GitHub'],
     },
     {
       category: 'Idiomas',
