@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun } from 'react-icons/fi';
+import { BsMoonFill } from 'react-icons/bs';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -69,9 +70,9 @@ const Header: React.FC = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={toggleTheme}
-                            className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+                            className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-slate-900 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
                         >
-                            {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+                            {isDark ? <FiSun className="w-5 h-5" /> : <BsMoonFill className="w-5 h-5" />}
                         </motion.button>
 
                         {/* Contact Button */}

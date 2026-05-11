@@ -37,6 +37,27 @@ const Certificates: React.FC = () => {
 
     const certificates = [
         {
+            title: 'AWS Serverless Demonstrated',
+            provider: 'Amazon Web Services Training and Certification',
+            completedDate: 'May 2026',
+            duration: 'Timed hands-on lab assessment',
+            grade: 'Microcredential',
+            verifyLink: 'https://www.credly.com/badges/d37c22b6-3722-4da4-a556-895c2bf13006/public_url',
+            skills: [
+                'Agentic AI',
+                'AI and ML on AWS - Foundational',
+                'Amazon Web Services',
+                'Artificial Intelligence (AI)',
+                'AWS',
+                'AWS Cloud',
+                'Demonstrated',
+                'Foundation Models',
+                'Generative AI',
+                'Machine Learning (ML)',
+                'Serverless Architecture',
+            ],
+        },
+        {
             title: 'AWS Cloud Technical Essentials',
             provider: 'Amazon Web Services',
             completedDate: 'January 20, 2026',
@@ -119,7 +140,7 @@ const Certificates: React.FC = () => {
                         <span className="gradient-text">Certificaciones</span>
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-400">
-                        Certificaciones profesionales en AWS Cloud Solutions Architecture
+                        Certificaciones profesionales en AWS Cloud Solutions Architecture y Serverless
                     </p>
                     <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mt-4" />
                 </motion.div>

@@ -1,12 +1,48 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiLinkedin, FiGithub } from 'react-icons/fi';
 
 const Contact: React.FC = () => {
     const googleFormUrl = 'https://forms.gle/W233xbrjPJe9XzrZ8';
+    const [copiedField, setCopiedField] = useState<string | null>(null);
+    const copyTimeoutRef = useRef<number | null>(null);
 
     const handleOpenForm = () => {
         window.open(googleFormUrl, '_blank');
+    };
+
+    const clearCopyTimeout = () => {
+        if (copyTimeoutRef.current !== null) {
+            window.clearTimeout(copyTimeoutRef.current);
+            copyTimeoutRef.current = null;
+        }
+    };
+
+    const copyToClipboard = async (text: string, field: string) => {
+        try {
+            if (navigator.clipboard?.writeText) {
+                await navigator.clipboard.writeText(text);
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+
+            setCopiedField(field);
+            clearCopyTimeout();
+            copyTimeoutRef.current = window.setTimeout(() => {
+                setCopiedField(null);
+                copyTimeoutRef.current = null;
+            }, 2000);
+        } catch {
+            setCopiedField(null);
+        }
     };
 
     const containerVariants = {
@@ -126,14 +162,47 @@ const Contact: React.FC = () => {
                         <div className="space-y-4">
                             {contactLinks.map((link, idx) => {
                                 const Icon = link.icon;
+                                const isCopyable = link.label === 'Email' || link.label === 'Teléfono';
+                                if (isCopyable) {
+                                    return (
+                                        <motion.button
+                                            key={idx}
+                                            type="button"
+                                            whileHover={{ x: 10, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
+                                            onClick={() => {
+                                                void copyToClipboard(link.value, link.label);
+                                            }}
+                                            className="flex w-full items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-200 dark:border-slate-700 text-left"
+                                        >
+                                            <motion.div
+                                                whileHover={{ rotate: 360 }}
+                                                transition={{ duration: 0.6 }}
+                                                className={`p-3 rounded-lg bg-gradient-to-br ${link.color}`}
+                                            >
+                                                <Icon className="w-6 h-6 text-white" />
+                                            </motion.div>
+                                            <div>
+                                                <p className="font-semibold text-gray-900 dark:text-white">{link.label}</p>
+                                                <p className="text-sm text-gray-600 dark:text-gray-400">{link.value}</p>
+                                                {copiedField === link.label && (
+                                                    <p className="text-xs font-semibold text-green-600 dark:text-green-400 mt-1">
+                                                        Copiado al portapapeles
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </motion.button>
+                                    );
+                                }
+
                                 return (
                                     <motion.a
                                         key={idx}
+                                        as="a"
                                         href={link.href}
-                                        target={link.label !== 'Email' && link.label !== 'Teléfono' ? '_blank' : undefined}
-                                        rel={link.label !== 'Email' && link.label !== 'Teléfono' ? 'noopener noreferrer' : undefined}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         whileHover={{ x: 10, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
-                                        className="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-200 dark:border-slate-700"
+                                        className="flex w-full items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-200 dark:border-slate-700 text-left"
                                     >
                                         <motion.div
                                             whileHover={{ rotate: 360 }}

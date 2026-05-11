@@ -35,6 +35,12 @@ const Skills: React.FC = () => {
       skills: ['AWS', 'GCP', 'Docker', 'Kubernetes'],
     },
     {
+      category: 'Agentes de IA',
+      icon: FiCode,
+      color: 'from-cyan-500 to-cyan-600',
+      skills: ['Codex', 'GitHub Copilot', 'Cloud AI'],
+    },
+    {
       category: 'Versionamiento',
       icon: FiGitBranch,
       color: 'from-red-500 to-red-600',
@@ -44,7 +50,7 @@ const Skills: React.FC = () => {
       category: 'Idiomas',
       icon: FiCode,
       color: 'from-indigo-500 to-indigo-600',
-      skills: ['Español (C1)', 'Inglés (B1)'],
+      skills: ['Español nativo', 'Inglés (B1)'],
     },
   ];
 
