@@ -38,7 +38,7 @@ const Skills: React.FC = () => {
       category: 'Agentes de IA',
       icon: FiCode,
       color: 'from-cyan-500 to-cyan-600',
-      skills: ['Codex', 'GitHub Copilot', 'Cloud AI'],
+      skills: ['Codex', 'GitHub Copilot', 'Claude AI'],
     },
     {
       category: 'Versionamiento',
