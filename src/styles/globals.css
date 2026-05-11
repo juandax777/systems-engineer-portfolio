@@ -172,3 +172,48 @@ input, textarea, select {
 ::-webkit-scrollbar-thumb {
   @apply bg-gray-400 dark:bg-slate-700 rounded-lg hover:bg-gray-500 dark:hover:bg-slate-600;
 }
+
+/* Section continuation hint */
+.section-fade-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 70%, rgba(255,255,255,1) 100%);
+  pointer-events: none;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  z-index: 60;
+}
+
+.scroll-indicator .chev {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.95);
+  border-radius: 9999px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.08);
+  color: #0f172a;
+}
+
+.scroll-indicator .chev:hover {
+  transform: translateY(-3px);
+}
+
+.scroll-indicator .chev .icon {
+  animation: float 2.2s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .section-fade-bottom { display: none; }
+  .scroll-indicator .chev { background: rgba(15,23,37,0.9); color: #f8fafc; }
+}
