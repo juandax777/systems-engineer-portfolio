@@ -65,9 +65,14 @@ const About: React.FC = () => {
                                 Perfil Profesional
                             </h3>
                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                                Estudiante de últimos semestres de Ingeniería de Sistemas con más de 1.5 años de experiencia en automatización con Python 
-                                y análisis de datos operacionales. Especializado en extracción, limpieza y consulta de datos con SQL, 
-                                construcción de dashboards en Excel y despliegue de soluciones backend en GCP y AWS.
+                                Ingeniero de Sistemas en formación con 1.5+ años en diseño e implementación de 
+                                soluciones backend escalables, arquitectura cloud y automatización de procesos 
+                                empresariales. Experto en desarrollo Python (FastAPI, pipelines de datos), 
+                                optimización SQL avanzada, despliegue en AWS/GCP y sistemas de automación robustos.
+
+                                Enfocado en arquitecturas resilientes, pensamiento analítico para resolver problemas 
+                                complejos y capacidad de traducir requisitos de negocio en soluciones técnicas elegantes. 
+                                Certificado en AWS Cloud Solutions Architect.
                             </p>
                         </div>
                         <div>

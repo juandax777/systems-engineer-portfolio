@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiBriefcase, FiCalendar } from 'react-icons/fi';
+import { FiBriefcase, FiCalendar, FiZap, FiCpu, FiDatabase, FiGitBranch, FiSearch, FiTool } from 'react-icons/fi';
 
 const Experience: React.FC = () => {
     const experiences = [
@@ -9,15 +9,15 @@ const Experience: React.FC = () => {
             company: 'Litigando.com',
             duration: 'Dic 2023 - Jul 2025',
             location: 'Remoto',
-            description: 'Responsable de automatización operacional con Python, consultas SQL complejas y prototipos de soluciones backend.',
+            description: 'Desarrollé soluciones backend de alto impacto para automatización de procesos operacionales, análisis de datos y optimización de infraestructura empresarial.',
             responsibilities: [
-                'Automatización con Excel (macros, fórmulas avanzadas)',
-                'Consultas SQL complejas para análisis de datos operacionales',
-                'Scripts en Python para extracción y transformación de datos',
-                'Uso de Tor para rotación de IP en web scraping',
-                'Desarrollo de prototipos de automatización para procesos empresariales',
+                { icon: FiZap, text: 'Diseñé pipelines de automatización en Python para extracción, transformación y análisis de datos operacionales, integrando múltiples fuentes heterogéneas y ejecutando consultas SQL optimizadas para business intelligence.', color: 'from-yellow-400 to-orange-500' },
+                { icon: FiCpu, text: 'Participé en Neuro Cruzador: sistema de deduplicación inteligente basado en redes neuronales y fuzzy matching que detecta registros duplicados en BD mediante búsquedas vectoriales y similitud semántica.', color: 'from-purple-400 to-pink-500' },
+                { icon: FiDatabase, text: 'Contribuí a BIMO: solución de bases de datos vectoriales con embeddings semánticos e índices HNSW para optimizar búsqueda y matching de información.', color: 'from-blue-400 to-cyan-500' },
+                { icon: FiGitBranch, text: 'Implementé herramientas backend en Python/FastAPI con schedulers, job queues y monitoreo de procesos; desarrollé web scraping avanzado con rotación de IP (Tor) y consumo de APIs REST/GraphQL.', color: 'from-green-400 to-emerald-500' },
+                { icon: FiTool, text: 'Proporcioné soporte técnico y mantenimiento de aplicaciones Java/Spring Boot en Apache Tomcat, incluyendo optimización de performance y análisis de logs.', color: 'from-red-400 to-rose-500' },
             ],
-            technologies: ['Python', 'SQL', 'Excel', 'Tor', 'APIs'],
+            technologies: ['Python', 'FastAPI', 'SQL', 'Tor', 'APIs REST/GraphQL', 'Java', 'Spring Boot', 'Apache Tomcat', 'Bases de Datos Vectoriales', 'Embeddings Semánticos'],
             type: 'Empleo',
         },
     ];
@@ -61,7 +61,7 @@ const Experience: React.FC = () => {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            className="mb-12 relative"
+                            className="mb-12 relative flex justify-center"
                         >
                             {/* Timeline dot */}
                             <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-3">
@@ -76,7 +76,7 @@ const Experience: React.FC = () => {
                             {/* Content Card */}
                             <motion.div
                                 whileHover={{ x: 10, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
-                                className="ml-12 md:ml-0 md:w-1/2 p-6 bg-white dark:bg-slate-900 rounded-lg shadow-md hover:shadow-lg transition-all"
+                                className="ml-12 md:ml-0 md:w-4/5 p-6 bg-white dark:bg-slate-900 rounded-lg shadow-md hover:shadow-lg transition-all"
                             >
                                 {/* Header */}
                                 <div className="flex items-start justify-between mb-4">
@@ -100,16 +100,29 @@ const Experience: React.FC = () => {
                                 <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
 
                                 {/* Responsibilities */}
-                                <div className="mb-4">
-                                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Responsabilidades:</h4>
-                                    <ul className="space-y-1">
-                                        {exp.responsibilities.map((resp, idx) => (
-                                            <li key={idx} className="text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                                                <span className="text-blue-500 font-bold mt-1">•</span>
-                                                <span>{resp}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                <div className="mb-6">
+                                    <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Responsabilidades y Logros:</h4>
+                                    <div className="space-y-3">
+                                        {exp.responsibilities.map((resp, idx) => {
+                                            const IconComponent = resp.icon;
+                                            return (
+                                                <motion.div
+                                                    key={idx}
+                                                    whileHover={{ x: 5, boxShadow: '0 10px 20px -5px rgba(0, 0, 0, 0.15)' }}
+                                                    className={`bg-gradient-to-r ${resp.color} p-4 rounded-lg shadow-md transition-all cursor-pointer group`}
+                                                >
+                                                    <div className="flex gap-3 items-start">
+                                                        <div className="p-2 bg-white dark:bg-slate-800 rounded-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+                                                            <IconComponent className="w-5 h-5 text-gray-900 dark:text-white" />
+                                                        </div>
+                                                        <span className="text-sm text-gray-900 dark:text-gray-100 leading-relaxed">
+                                                            {resp.text}
+                                                        </span>
+                                                    </div>
+                                                </motion.div>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
 
                                 {/* Technologies */}

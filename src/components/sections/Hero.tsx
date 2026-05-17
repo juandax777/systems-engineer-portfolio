@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
                     variants={itemVariants}
                     className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto"
                 >
-                    Transformo datos complejos en decisiones estratégicas. Especialista en automatización Python, análisis de datos y soluciones cloud (AWS/GCP).
+                    Diseño e implemento sistemas escalables. Backend Engineer enfocado en arquitectura cloud, automatización robusta y optimización de infraestructura en AWS/GCP.
                 </motion.p>
 
                 {/* Location & Contact Quick Links */}
